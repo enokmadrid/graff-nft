@@ -17,7 +17,9 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     Counters.Counter private _tokenIdCounter;
 
     uint256 public MINT_PRICE = 0.05 ether;
-    uint256 public MAX_SUPPLY = 8700;
+    uint256 public MAX_SUPPLY;
+    bool public IS_MINT_ENABLED;
+    mapping(address => uint256) public MINTED_WALLETS;
 
 
     //************************************//
@@ -26,14 +28,22 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     constructor() ERC721("The Freshest Kids", "TFK") {
         _tokenIdCounter.increment(); // Start token ID at 1.
     }
+    
+    function _baseURI() internal pure override returns (string memory) {
+        return "http://thefreshestkids.eth";
+    }
+
+    function setMaxSupply(uint256 maxSupply_) external onlyOwner {
+        MAX_SUPPLY = maxSupply_;
+    }
+
+    function toggleIsMintEnabled() external onlyOwner {
+        IS_MINT_ENABLED = !IS_MINT_ENABLED;
+    }
 
     function withdraw() public onlyOwner() {
         require(address(this).balance > 0, "Balance is zero.");
         payable(owner()).transfer(address(this).balance);
-    }
-
-    function _baseURI() internal pure override returns (string memory) {
-        return "http://thefreshestkids.eth";
     }
 
 
@@ -53,11 +63,19 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     //******* 4. MINTING FUNCTIONS *******//
     //************************************//
     function safeMint(address to) public payable {
+        // check if minting is enabled
+        require(IS_MINT_ENABLED, "Minting disabled");
+
         // check if ether value is correct
         require(totalSupply() < MAX_SUPPLY, "Can't mint anymore tokens");
 
+        // check if wallet does not exceed max per wallet
+        require(MINTED_WALLETS[to] < 8, "Exceeds max per wallet");
+
         // check if ether value is correct
-        require(msg.value >= MINT_PRICE, "Not enough ether sent.");
+        require(to >= MINT_PRICE, "Not enough ether sent");
+
+        MINTED_WALLETS[msg.sender]++;
 
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
