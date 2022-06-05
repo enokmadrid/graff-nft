@@ -73,9 +73,9 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
         require(MINTED_WALLETS[to] < 8, "Exceeds max per wallet");
 
         // check if ether value is correct
-        require(to >= MINT_PRICE, "Not enough ether sent");
+        require(msg.value >= MINT_PRICE, "Not enough ether sent");
 
-        MINTED_WALLETS[msg.sender]++;
+        MINTED_WALLETS[to]++;
 
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();

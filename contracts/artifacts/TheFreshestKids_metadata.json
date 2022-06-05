@@ -799,11 +799,11 @@
 			]
 		},
 		"contracts/graff.sol": {
-			"keccak256": "0x55e3ebae4dde574069b1aa10712165e8391e46fac1c2e26b0425bbb1653ace9a",
+			"keccak256": "0x902daa210b2e5a625dd334e20fe21e24dee15152d1511d69589d6c6011603ad0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7fde77bdf9d73d4d74eec19c7ab290deac33c7900737accc8416f28d16fb5556",
-				"dweb:/ipfs/QmaDsw3i3mZEiJynLf9HyxmtbgY7PqWkCt6VTGyyURNFBv"
+				"bzz-raw://6d12d45e157e88e0a32d877d326e6f74026602254612b0e1967470fbe5df43f3",
+				"dweb:/ipfs/QmYYS3bkVCLkddBEsyLxtXDQT9zjrPNbmgdCNVnHK28DDq"
 			]
 		}
 	},
