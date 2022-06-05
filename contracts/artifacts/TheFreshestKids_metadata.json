@@ -131,6 +131,32 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "MAX_SUPPLY",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINT_PRICE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -292,7 +318,7 @@
 				],
 				"name": "safeMint",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -513,6 +539,13 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -714,11 +747,11 @@
 			]
 		},
 		"contracts/graff.sol": {
-			"keccak256": "0xc92cfd9db7a4d1c0f8153b24f328f3b2dad97fb8b41bae6304e818e177292859",
+			"keccak256": "0x7f31eec38d8fefb90989db6df7854b9a2b427464ebfb57e18437c967ca87f183",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c6685acf99d8f06055002bdb6f7a4480cc7e1fd451be993743f2975c22ee21c5",
-				"dweb:/ipfs/QmWd41LRV9kPveYDW7MPrQfZqgSCKuz77AdkUf173kkEZT"
+				"bzz-raw://d6320e37525a4616ede7f36dc5eedcbee1f4ae0c3d44b1a62caa6c39d65598bd",
+				"dweb:/ipfs/QmTRKWqn2fTxX5N8PFuHAx2bMxf9VYjQiypMKcNXvVzzy8"
 			]
 		}
 	},

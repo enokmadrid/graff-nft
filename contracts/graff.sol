@@ -16,11 +16,21 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
 
+    uint256 public MINT_PRICE = 0.05 ether;
+    uint256 public MAX_SUPPLY = 8700;
+
 
     //************************************//
     //******* 2. LIFECYCLE METHODS *******//
     //************************************//
-    constructor() ERC721("The Freshest Kids", "TFK") {}
+    constructor() ERC721("The Freshest Kids", "TFK") {
+        _tokenIdCounter.increment(); // Start token ID at 1.
+    }
+
+    function withdraw() public onlyOwner() {
+        require(address(this).balance > 0, "Balance is zero.");
+        payable(owner()).transfer(address(this).balance);
+    }
 
     function _baseURI() internal pure override returns (string memory) {
         return "http://thefreshestkids.eth";
@@ -42,7 +52,13 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     //************************************//
     //******* 4. MINTING FUNCTIONS *******//
     //************************************//
-    function safeMint(address to) public {
+    function safeMint(address to) public payable {
+        // check if ether value is correct
+        require(totalSupply() < MAX_SUPPLY, "Can't mint anymore tokens");
+
+        // check if ether value is correct
+        require(msg.value >= MINT_PRICE, "Not enough ether sent.");
+
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
