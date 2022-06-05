@@ -19,7 +19,7 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
     uint256 public MINT_PRICE = 0.05 ether;
     uint256 public MAX_SUPPLY;
     bool public IS_MINT_ENABLED;
-    mapping(address => uint256) public MINTED_WALLETS;
+    mapping(address => uint256) public MINTED_AMOUNT;
 
 
     //************************************//
@@ -70,12 +70,12 @@ contract TheFreshestKids is ERC721, ERC721Enumerable, Pausable, Ownable {
         require(totalSupply() < MAX_SUPPLY, "Can't mint anymore tokens");
 
         // check if wallet does not exceed max per wallet
-        require(MINTED_WALLETS[to] < 8, "Exceeds max per wallet");
+        require(MINTED_AMOUNT[to] < 8, "Exceeds max per wallet");
 
         // check if ether value is correct
         require(msg.value >= MINT_PRICE, "Not enough ether sent");
 
-        MINTED_WALLETS[to]++;
+        MINTED_AMOUNT[to]++;
 
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
