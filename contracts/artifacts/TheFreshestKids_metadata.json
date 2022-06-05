@@ -164,7 +164,7 @@
 						"type": "address"
 					}
 				],
-				"name": "MINTED_WALLETS",
+				"name": "MINTED_AMOUNT",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -328,6 +328,63 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "pickRandomFirstWord",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "pickRandomSecondWord",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "pickRandomThirdWord",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -799,11 +856,27 @@
 			]
 		},
 		"contracts/graff.sol": {
-			"keccak256": "0x902daa210b2e5a625dd334e20fe21e24dee15152d1511d69589d6c6011603ad0",
+			"keccak256": "0xbc7f87f8342b054d5f5ba561a1922822e78cffe98ec7926078a314d675773951",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6d12d45e157e88e0a32d877d326e6f74026602254612b0e1967470fbe5df43f3",
-				"dweb:/ipfs/QmYYS3bkVCLkddBEsyLxtXDQT9zjrPNbmgdCNVnHK28DDq"
+				"bzz-raw://068003c64fa9a299115dd02e920f530024ac50799e368342992de35cd25fbbdf",
+				"dweb:/ipfs/Qmbm22FkJFs4pGzpBZ7wwqHdrrxMq1pzXxnGJopx23RTAQ"
+			]
+		},
+		"contracts/libraries/Base64.sol": {
+			"keccak256": "0x2a678b6003264920f6f82ec8b20ee2ad01213fe7998e592f9c182f717960cfc2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7d60f2d86c61d24a0321e17a65cbc98548d871b594cbed4a75ef10e2b89120ca",
+				"dweb:/ipfs/Qmb2Nrs13u5fWCdFduyTMcGDGsZNyyuP7BDkN6FNaeLz77"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
+				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
 			]
 		}
 	},
